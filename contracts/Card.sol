@@ -166,10 +166,6 @@ contract WileCard is ERC721URIStorage {
         return result;
     }
 
-    function getUserToken() public view returns (uint256[] memory) {
-        return userOwnedTokens[msg.sender];
-    }
-
     function getUserTokenWithAddress(address sender) public view returns (uint256[] memory) {
         return userOwnedTokens[sender];
     }
@@ -178,6 +174,9 @@ contract WileCard is ERC721URIStorage {
         return _tokenIds;
     }
 
+    function getUserToken() public view returns (uint256[] memory) {
+        return userOwnedTokens[msg.sender];
+    }
 
     function deposit() public payable returns (uint256) {
         require(msg.value == 1 * (10**fee), "MONEY U KONW");
